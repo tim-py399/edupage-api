@@ -110,6 +110,7 @@ class EventType(str, Enum):
     ALBUM = "album"
 
     # Other
+    BEE = "vcelicka"
     OTHER = "other"
 
     # Helper
@@ -125,6 +126,7 @@ class EventType(str, Enum):
     H_FINANCES = "h_financie"
     H_GRADES = "h_znamky"
     H_HOMEWORK = "h_homework"
+    H_IGROUPS = "h_igroups"
     H_PROCESS = "h_process"
     H_PROCESSTYPES = "h_processtypes"
     H_SETTINGS = "h_settings"
@@ -167,9 +169,6 @@ class TimelineEvents(Module):
             if not event_id_str:
                 continue
             event_type = EventType.parse(event_type_str)
-
-            if event_type is None:
-                print(event_type_str)
 
             event_timestamp = datetime.strptime(event.get("timestamp"), "%Y-%m-%d %H:%M:%S")
             text = event.get("text")
